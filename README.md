@@ -1,171 +1,90 @@
-# 🧠 Customer Churn Prediction using Artificial Neural Networks
+# 🧠 Customer Churn Prediction using Artificial Neural Network
 
-```{=html}
-<p align="center">
-```
-`<strong>`{=html}An end-to-end Deep Learning project that predicts
-whether a bank customer is likely to churn.`</strong>`{=html}
-```{=html}
-</p>
-```
-```{=html}
-<p align="center">
-```
-`<a href="https://annproject-zkhvuagmyq8godb5q73nzq.streamlit.app/">`{=html}
-`<img src="https://img.shields.io/badge/🚀%20Live%20Demo-Streamlit-red?style=for-the-badge" alt="Live Demo">`{=html}
-`</a>`{=html}
-`<a href="https://github.com/tusharaitechie/ANN_Project">`{=html}
-`<img src="https://img.shields.io/badge/💻%20GitHub-Repository-black?style=for-the-badge&logo=github" alt="GitHub Repository">`{=html}
-`</a>`{=html}
-```{=html}
-</p>
-```
-```{=html}
-<p align="center">
-```
-`<img src="https://img.shields.io/badge/Python-3.x-blue?style=flat-square&logo=python" alt="Python">`{=html}
-`<img src="https://img.shields.io/badge/TensorFlow-ANN-orange?style=flat-square&logo=tensorflow" alt="TensorFlow">`{=html}
-`<img src="https://img.shields.io/badge/Scikit--Learn-ML-F7931E?style=flat-square&logo=scikit-learn" alt="Scikit-Learn">`{=html}
-`<img src="https://img.shields.io/badge/Streamlit-Deployed-FF4B4B?style=flat-square&logo=streamlit" alt="Streamlit">`{=html}
-```{=html}
-</p>
-```
+> An end-to-end Deep Learning project that predicts the probability of
+> customer churn using an Artificial Neural Network (ANN), with a fully
+> deployed Streamlit application.
 
-------------------------------------------------------------------------
-
-## 📌 Project Overview
-
-Customer churn is a critical business problem for customer-centric
-organizations, particularly in the banking domain. The objective of this
-project is to build a **binary classification model using an Artificial
-Neural Network (ANN)** that estimates whether a customer is likely to
-leave a bank based on demographic, financial, and account-related
-attributes.
-
-This project goes beyond model training. It demonstrates an **end-to-end
-Machine Learning / Deep Learning workflow**:
-
-> **Raw Data → Preprocessing → Feature Engineering → Scaling → ANN →
-> Hyperparameter Tuning → Model Serialization → Inference Pipeline →
-> Streamlit Deployment**
-
-The trained model is exposed through an interactive Streamlit
-application where a user can enter customer information and receive a
-churn probability and classification.
-
-### 🎯 What this project demonstrates
-
--   Practical Artificial Neural Network implementation using
-    TensorFlow/Keras
--   Categorical feature encoding and numerical feature scaling
--   Reproducible preprocessing using serialized encoders and scaler
--   ANN architecture experimentation
--   Hyperparameter optimization with `GridSearchCV` + `SciKeras`
--   Cross-validation
--   Early stopping and TensorBoard monitoring
--   Model serialization and production-style inference
--   Interactive ML application development with Streamlit
--   Deployment of a trained Deep Learning model as a web application
+[![Live
+Demo](https://img.shields.io/badge/🚀%20Live%20Demo-Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://annproject-zkhvuagmyq8godb5q73nzq.streamlit.app/)
+[![GitHub](https://img.shields.io/badge/💻%20GitHub-Repository-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/tusharaitechie/ANN_Project)
+[![Python](https://img.shields.io/badge/Python-3.x-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
+[![TensorFlow](https://img.shields.io/badge/TensorFlow-ANN-FF6F00?style=flat-square&logo=tensorflow&logoColor=white)](https://www.tensorflow.org/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-Deployed-FF4B4B?style=flat-square&logo=streamlit&logoColor=white)](https://streamlit.io/)
 
 ------------------------------------------------------------------------
 
 ## 🚀 Live Demo
 
-### Try the deployed application
+**Try the application:**\
+[Open Customer Churn Prediction
+App](https://annproject-zkhvuagmyq8godb5q73nzq.streamlit.app/)
 
-**Live App:**\
-https://annproject-zkhvuagmyq8godb5q73nzq.streamlit.app/
-
-The application accepts customer attributes and runs the same
-preprocessing pipeline used during model development before generating
-the ANN prediction.
-
-------------------------------------------------------------------------
-
-## 🧩 Problem Statement
-
-Given customer information such as:
-
--   Credit Score
--   Geography
--   Gender
--   Age
--   Tenure
--   Account Balance
--   Number of Products
--   Credit Card Status
--   Active Membership Status
--   Estimated Salary
-
-predict the target variable:
-
-**`Exited`**
-
-Where:
-
--   `1` → Customer churned
--   `0` → Customer did not churn
-
-The model also produces a **churn probability between 0 and 1**.
+The deployed application allows a user to enter customer details and
+receive an ANN-based churn prediction without running the training
+notebooks locally.
 
 ------------------------------------------------------------------------
 
-## 🏗️ End-to-End Architecture
+## 📌 Project Overview
+
+Customer retention is an important business problem in the banking
+industry. This project uses an **Artificial Neural Network for binary
+classification** to estimate whether a bank customer is likely to leave
+the bank.
+
+The project covers the complete workflow from data preprocessing and
+model development to hyperparameter tuning, model serialization and
+cloud deployment.
+
+### End-to-End Workflow
 
 ``` text
-                         ┌─────────────────────────┐
-                         │   Churn Modelling Data  │
-                         └────────────┬────────────┘
-                                      │
-                                      ▼
-                         ┌─────────────────────────┐
-                         │   Data Cleaning &       │
-                         │   Feature Selection     │
-                         └────────────┬────────────┘
-                                      │
-                     ┌────────────────┴────────────────┐
-                     │                                 │
-                     ▼                                 ▼
-             Categorical Features              Numerical Features
-                     │                                 │
-                     ▼                                 ▼
-              Label Encoding                    Standard Scaling
-              One-Hot Encoding                         │
-                     │                                 │
-                     └────────────────┬────────────────┘
-                                      │
-                                      ▼
-                         ┌─────────────────────────┐
-                         │  Artificial Neural       │
-                         │  Network (TensorFlow)   │
-                         └────────────┬────────────┘
-                                      │
-                                      ▼
-                         ┌─────────────────────────┐
-                         │  Churn Probability      │
-                         │       0.0 → 1.0         │
-                         └────────────┬────────────┘
-                                      │
-                                      ▼
-                         ┌─────────────────────────┐
-                         │  Threshold Classification│
-                         │       > 0.50 → Churn    │
-                         └────────────┬────────────┘
-                                      │
-                                      ▼
-                         ┌─────────────────────────┐
-                         │    Streamlit Web App    │
-                         └─────────────────────────┘
+Raw Customer Data
+       ↓
+Data Cleaning
+       ↓
+Feature Selection
+       ↓
+Categorical Encoding
+       ↓
+Feature Scaling
+       ↓
+ANN Model Development
+       ↓
+Hyperparameter Tuning
+       ↓
+Model Evaluation
+       ↓
+Model Serialization
+       ↓
+Prediction Pipeline
+       ↓
+Streamlit Application
+       ↓
+Cloud Deployment
 ```
 
 ------------------------------------------------------------------------
 
-## 📊 Dataset
+## 🎯 Problem Statement
 
-The project uses the **Churn Modelling** dataset containing customer
-demographic, banking, and financial information.
+Given customer demographic, financial and account-related information,
+predict whether the customer is likely to churn.
 
-### Features used
+### Target Variable
+
+  Value   Meaning
+  ------- ------------------------
+  `0`     Customer did not churn
+  `1`     Customer churned
+
+The ANN produces a probability between `0` and `1`, which is then
+converted into a binary prediction using a `0.50` threshold in the
+application.
+
+------------------------------------------------------------------------
+
+## 📊 Features Used
 
   Feature             Description
   ------------------- ------------------------------------------
@@ -179,12 +98,11 @@ demographic, banking, and financial information.
   `HasCrCard`         Whether the customer has a credit card
   `IsActiveMember`    Whether the customer is an active member
   `EstimatedSalary`   Estimated customer salary
-  `Exited`            Target variable representing churn
+  `Exited`            Target variable
 
-### Features removed
+### Identifier columns excluded
 
-The following columns were excluded because they are identifiers rather
-than useful predictive signals:
+The following columns are not used as predictive features:
 
 -   `RowNumber`
 -   `CustomerId`
@@ -194,102 +112,100 @@ than useful predictive signals:
 
 ## 🧹 Data Preprocessing
 
-A consistent preprocessing pipeline is essential because the exact same
-transformations used during training must also be applied during
+The project uses a consistent preprocessing workflow so that the
+transformations applied during training can also be reproduced during
 inference.
 
-### 1. Remove non-predictive identifiers
+### 1. Gender Encoding
+
+`Gender` is converted from categorical values into numerical values
+using `LabelEncoder`.
 
 ``` text
-RowNumber
-CustomerId
-Surname
-```
-
-### 2. Encode Gender
-
-`Gender` is transformed using `LabelEncoder`.
-
-``` text
-Categorical Gender
-       ↓
+Male / Female
+      ↓
 LabelEncoder
-       ↓
+      ↓
 Numerical Representation
 ```
 
-### 3. Encode Geography
+### 2. Geography Encoding
 
 `Geography` is transformed using `OneHotEncoder`.
 
 ``` text
-Geography
-   ↓
-OneHotEncoder
-   ↓
-Geography_France
-Geography_Germany
-Geography_Spain
+France / Germany / Spain
+          ↓
+   OneHotEncoder
+          ↓
+Multiple Numerical Features
 ```
 
-The encoder is configured to handle unseen categories safely.
+The encoder is configured to handle previously unseen categories safely
+during inference.
 
-### 4. Scale numerical features
+### 3. Numerical Feature Scaling
 
-`StandardScaler` is used before feeding the features into the ANN.
+Numerical features are standardized using `StandardScaler`.
 
 ``` text
 Raw Numerical Features
           ↓
     StandardScaler
           ↓
-     Scaled Features
+    Scaled Features
           ↓
-          ANN
+         ANN
 ```
 
-### 🔒 Reusable preprocessing artifacts
+### 4. Saved Preprocessing Artifacts
 
-The following objects are serialized and reused during prediction:
+The preprocessing objects are saved and reused by the prediction
+application:
 
--   `label_encoder_gender.pkl`
--   `onehot_encoder_geo.pkl`
--   `scaler.pkl`
+``` text
+label_encoder_gender.pkl
+onehot_encoder_geo.pkl
+scaler.pkl
+```
 
-This prevents training-time and inference-time transformations from
-becoming inconsistent.
+This helps maintain consistency between training and production
+inference.
 
 ------------------------------------------------------------------------
 
-## 🧠 Artificial Neural Network
+## 🧠 ANN Model Architecture
 
-The primary ANN classification architecture is:
+The main classification model uses the following architecture:
 
 ``` text
 Input Features
       │
       ▼
-Dense Layer — 64 Neurons
-Activation — ReLU
+Dense Layer
+64 Neurons
+ReLU Activation
       │
       ▼
-Dense Layer — 32 Neurons
-Activation — ReLU
+Dense Layer
+32 Neurons
+ReLU Activation
       │
       ▼
-Output Layer — 1 Neuron
-Activation — Sigmoid
+Output Layer
+1 Neuron
+Sigmoid Activation
       │
       ▼
 Churn Probability
 ```
 
-### Model configuration
+### Model Configuration
 
-  Parameter           Value
+  Parameter           Configuration
   ------------------- ---------------------------
-  Model Type          Artificial Neural Network
-  Task                Binary Classification
+  Model               Artificial Neural Network
+  Problem             Binary Classification
   Framework           TensorFlow / Keras
   Hidden Layer 1      64 neurons
   Hidden Layer 2      32 neurons
@@ -297,29 +213,29 @@ Churn Probability
   Output Layer        1 neuron
   Output Activation   Sigmoid
   Optimizer           Adam
-  Loss                Binary Cross-Entropy
+  Loss Function       Binary Cross-Entropy
   Metric              Accuracy
   Maximum Epochs      100
   Training Control    Early Stopping
 
 ### Why Sigmoid?
 
-For binary classification, the sigmoid activation maps the model output
-to a value between `0` and `1`, which can be interpreted as the model's
-estimated probability for the positive class.
+The output layer uses the sigmoid activation function because this is a
+binary classification problem. It maps the model output to a value
+between `0` and `1`, which can be used as a probability estimate.
 
 ------------------------------------------------------------------------
 
 ## 🔬 Hyperparameter Tuning
 
-Instead of relying on a single ANN architecture, the project includes an
-experiment using:
+The project also includes a dedicated hyperparameter-tuning experiment
+using:
 
 -   `GridSearchCV`
 -   `SciKeras`
 -   3-fold cross-validation
 
-### Search space
+### Hyperparameters explored
 
   Hyperparameter   Values
   ---------------- -----------------
@@ -327,50 +243,44 @@ experiment using:
   Hidden Layers    1, 2
   Epochs           50, 100
 
-This resulted in:
+This experiment evaluates multiple ANN configurations instead of relying
+on a single manually selected architecture.
+
+### Recorded Best Configuration
 
 ``` text
-16 configurations × 3 CV folds
-= 48 model fits
-```
-
-### Recorded best configuration
-
-``` text
-Epochs : 100
-Layers : 1
-Neurons: 16
+Epochs  : 100
+Layers  : 1
+Neurons : 16
 CV Score: ~0.8584
 ```
 
-> **Note:** The CV score above is the recorded cross-validation score
-> from the hyperparameter-tuning experiment. It should not be
-> interpreted as a held-out test-set score.
-
-This experiment demonstrates the use of systematic model selection
-rather than choosing an ANN architecture arbitrarily.
+> **Important:** `0.8584` is the recorded cross-validation score from
+> the hyperparameter-tuning experiment. It is not presented as a
+> held-out test-set accuracy.
 
 ------------------------------------------------------------------------
 
 ## ⏱️ Early Stopping
 
-Early stopping is incorporated into the training workflow to avoid
-unnecessary training once validation performance stops improving.
+Early stopping is used during ANN training to stop training when
+validation performance stops improving.
 
-Benefits include:
+### Benefits
 
--   Reduced unnecessary computation
--   Lower risk of overfitting
--   Better generalization
--   More efficient training
+-   Reduces unnecessary training
+-   Helps control overfitting
+-   Improves training efficiency
+-   Can improve generalization
 
 ------------------------------------------------------------------------
 
-## 📈 TensorBoard Monitoring
+## 📈 TensorBoard
 
-TensorBoard is integrated for monitoring the ANN training process.
+TensorBoard is integrated into the training workflow for monitoring
+model training.
 
-The project can be used to inspect:
+The training logs can be used to inspect:
 
 -   Training loss
 -   Validation loss
@@ -378,13 +288,13 @@ The project can be used to inspect:
 -   Validation accuracy
 -   Training progress
 
-Training logs are maintained under the project logging directories.
+This makes it easier to understand how the ANN behaves during training.
 
 ------------------------------------------------------------------------
 
 ## 💾 Model Serialization
 
-The trained model and preprocessing objects are saved as reusable
+The trained model and preprocessing components are stored as reusable
 artifacts.
 
 ``` text
@@ -394,19 +304,19 @@ onehot_encoder_geo.pkl
 scaler.pkl
 ```
 
-This enables the deployed application to perform inference without
-retraining the model.
+The Streamlit application loads these artifacts at runtime instead of
+retraining the ANN for every prediction.
 
 ------------------------------------------------------------------------
 
 ## 🌐 Streamlit Application
 
-The Streamlit application provides an interactive interface for
-real-time predictions.
+The project includes an interactive Streamlit application for real-time
+inference.
 
-### Application inputs
+### User Inputs
 
-Users can provide:
+The application accepts customer information including:
 
 -   Geography
 -   Gender
@@ -419,12 +329,12 @@ Users can provide:
 -   Credit Card status
 -   Active Member status
 
-### Inference pipeline
+### Prediction Pipeline
 
 ``` text
 User Input
     ↓
-Create DataFrame
+Create Input DataFrame
     ↓
 Encode Gender
     ↓
@@ -432,18 +342,18 @@ One-Hot Encode Geography
     ↓
 Combine Features
     ↓
-StandardScaler
+Apply StandardScaler
     ↓
-Trained ANN
+Load Trained ANN
     ↓
-Prediction Probability
+Generate Probability
     ↓
-Threshold > 0.50
+Apply Prediction Threshold
     ↓
 Churn / Not Churn
 ```
 
-### Prediction rule
+### Prediction Logic
 
 ``` text
 Probability > 0.50
@@ -457,7 +367,43 @@ Not Likely to Churn
 
 ------------------------------------------------------------------------
 
-## 🗂️ Project Structure
+## 🏗️ Project Architecture
+
+``` text
+                         ┌──────────────────────┐
+                         │   Churn Modelling    │
+                         │       Dataset       │
+                         └──────────┬───────────┘
+                                    │
+                                    ▼
+                         ┌──────────────────────┐
+                         │ Data Preprocessing   │
+                         │ Encoding + Scaling  │
+                         └──────────┬───────────┘
+                                    │
+                                    ▼
+                         ┌──────────────────────┐
+                         │ Artificial Neural    │
+                         │ Network              │
+                         └──────────┬───────────┘
+                                    │
+                                    ▼
+                         ┌──────────────────────┐
+                         │ Churn Probability    │
+                         └──────────┬───────────┘
+                                    │
+                                    ▼
+                         ┌──────────────────────┐
+                         │ Streamlit Interface  │
+                         └──────────┬───────────┘
+                                    │
+                                    ▼
+                              Cloud Deployment
+```
+
+------------------------------------------------------------------------
+
+## 📁 Repository Structure
 
 ``` text
 ANN_Project/
@@ -485,29 +431,27 @@ ANN_Project/
     └── fit/
 ```
 
-### Notebook responsibilities
+### Notebook Overview
 
   -----------------------------------------------------------------------
   Notebook                            Purpose
   ----------------------------------- -----------------------------------
-  `experiments.ipynb`                 Main ANN development,
-                                      preprocessing, training, early
-                                      stopping, TensorBoard and model
-                                      saving
+  `experiments.ipynb`                 ANN experimentation, preprocessing,
+                                      training, early stopping and
+                                      TensorBoard
 
-  `hyperparametertuningann.ipynb`     ANN architecture search using
-                                      GridSearchCV + SciKeras
+  `hyperparametertuningann.ipynb`     ANN hyperparameter tuning using
+                                      GridSearchCV and SciKeras
 
-  `prediction.ipynb`                  Loading serialized preprocessing
-                                      objects and performing predictions
+  `prediction.ipynb`                  Loading saved preprocessing objects
+                                      and generating predictions
 
-  `salaryregression.ipynb`            Additional ANN regression
-                                      experiment
+  `salaryregression.ipynb`            ANN-based regression experiment
   -----------------------------------------------------------------------
 
 ------------------------------------------------------------------------
 
-## 🛠️ Tech Stack
+## 🛠️ Technology Stack
 
 ### Programming & Data
 
@@ -519,9 +463,10 @@ ANN_Project/
 
 -   Scikit-learn
 -   SciKeras
--   Feature preprocessing
--   Cross-validation
 -   GridSearchCV
+-   Cross-validation
+-   Feature encoding
+-   Feature scaling
 
 ### Deep Learning
 
@@ -546,25 +491,21 @@ ANN_Project/
 ### Development
 
 -   Jupyter Notebook
--   Git / GitHub
+-   Git
+-   GitHub
 
 ------------------------------------------------------------------------
 
-## ⚙️ Installation & Local Setup
+## ⚙️ Run the Project Locally
 
 ### 1. Clone the repository
 
 ``` bash
 git clone https://github.com/tusharaitechie/ANN_Project.git
-```
-
-### 2. Navigate to the project
-
-``` bash
 cd ANN_Project
 ```
 
-### 3. Create a virtual environment
+### 2. Create a virtual environment
 
 #### Windows
 
@@ -580,29 +521,29 @@ python3 -m venv venv
 source venv/bin/activate
 ```
 
-### 4. Install dependencies
+### 3. Install dependencies
 
 ``` bash
 pip install -r requirements.txt
 ```
 
-### 5. Run the Streamlit application
+### 4. Start the Streamlit application
 
 ``` bash
 streamlit run app.py
 ```
 
-The application will be available locally through the Streamlit URL
-shown in the terminal.
+The application will open at the local Streamlit address displayed in
+the terminal.
 
 ------------------------------------------------------------------------
 
-## 🧪 Example Inference Flow
+## 🧪 Example Prediction Flow
 
-A simplified example of the deployed prediction process:
+A simplified version of the inference workflow:
 
 ``` python
-# Load trained model
+# Load trained ANN
 model = tf.keras.models.load_model("model.h5")
 
 # Load preprocessing artifacts
@@ -619,130 +560,163 @@ prediction = model.predict(input_data_scaled)
 churn_probability = prediction[0][0]
 ```
 
-The important design principle is that **preprocessing and inference use
-the same saved transformations as training**.
+The key principle is that the same preprocessing logic used during
+training is reused during inference.
 
 ------------------------------------------------------------------------
 
-## 📌 Key Engineering Takeaways
+## 💡 Key Machine Learning Concepts Demonstrated
 
-This project demonstrates several concepts that are important when
-moving from a notebook experiment toward a deployable ML solution:
+This project demonstrates practical knowledge of:
 
-### 1. Training ≠ Deployment
+-   Binary classification
+-   Artificial Neural Networks
+-   Feature preprocessing
+-   Label encoding
+-   One-hot encoding
+-   Feature scaling
+-   Model training
+-   Validation
+-   Cross-validation
+-   Hyperparameter tuning
+-   Early stopping
+-   TensorBoard monitoring
+-   Model serialization
+-   Production inference
+-   Streamlit deployment
 
-A trained model alone is not enough. The deployment pipeline must
-reproduce the preprocessing steps used during training.
+------------------------------------------------------------------------
 
-### 2. Preprocessing artifacts matter
+## 📈 From Notebook to Deployable Application
 
-Saving the encoder and scaler makes the inference pipeline reproducible.
+One of the main goals of this project is to demonstrate the difference
+between simply training a model and building a usable ML application.
 
-### 3. Architecture should be validated experimentally
-
-Grid search and cross-validation provide a systematic way to compare ANN
-configurations.
-
-### 4. Model monitoring improves development
-
-TensorBoard makes it easier to understand training behavior and identify
-potential overfitting or under-training.
-
-### 5. A model becomes more useful when it is accessible
-
-The Streamlit layer converts the trained ANN into an interactive
-application that can be tested without opening a notebook.
+``` text
+                 MODEL DEVELOPMENT
+                       │
+                       ▼
+              ┌─────────────────┐
+              │ Data Processing │
+              └────────┬────────┘
+                       ▼
+              ┌─────────────────┐
+              │ ANN Development │
+              └────────┬────────┘
+                       ▼
+              ┌─────────────────┐
+              │ Model Tuning    │
+              └────────┬────────┘
+                       ▼
+              ┌─────────────────┐
+              │ Model Saving    │
+              └────────┬────────┘
+                       │
+                       ▼
+                 DEPLOYMENT
+                       │
+                       ▼
+              ┌─────────────────┐
+              │ Load Artifacts  │
+              └────────┬────────┘
+                       ▼
+              ┌─────────────────┐
+              │ User Input      │
+              └────────┬────────┘
+                       ▼
+              ┌─────────────────┐
+              │ Preprocessing   │
+              └────────┬────────┘
+                       ▼
+              ┌─────────────────┐
+              │ ANN Prediction  │
+              └────────┬────────┘
+                       ▼
+              ┌─────────────────┐
+              │ Streamlit App   │
+              └─────────────────┘
+```
 
 ------------------------------------------------------------------------
 
 ## 🔭 Future Improvements
 
-Potential next steps for making the project more production-ready:
+The following improvements can make the project more
+production-oriented:
 
 -   Add Precision, Recall and F1-Score
 -   Add Confusion Matrix
 -   Add ROC-AUC analysis
--   Add threshold tuning based on business cost
--   Add model explainability using SHAP
--   Add interactive model-performance dashboards
--   Add stronger input validation and exception handling
--   Add automated unit/integration tests
--   Add CI/CD using GitHub Actions
--   Containerize with Docker
+-   Tune the classification threshold based on business requirements
+-   Add SHAP-based model explainability
+-   Add stronger input validation
+-   Add automated tests
+-   Add GitHub Actions for CI/CD
+-   Containerize the application using Docker
 -   Add experiment tracking and model versioning
--   Migrate legacy `.h5` artifacts to the modern `.keras` format
--   Improve Streamlit UI/UX
 -   Add model/data drift monitoring
+-   Migrate legacy `.h5` model artifacts to the modern `.keras` format
+-   Improve Streamlit UI and prediction visualization
 
 ------------------------------------------------------------------------
 
 ## 🎓 Learning Outcomes
 
-Building this project provided hands-on experience across the complete
-ML lifecycle:
+By building this project, the following end-to-end concepts were
+practiced:
 
 ``` text
 Data Understanding
-       ↓
+        ↓
 Data Cleaning
-       ↓
+        ↓
 Feature Engineering
-       ↓
+        ↓
 Categorical Encoding
-       ↓
+        ↓
 Feature Scaling
-       ↓
+        ↓
 ANN Development
-       ↓
+        ↓
 Hyperparameter Tuning
-       ↓
+        ↓
 Cross-Validation
-       ↓
+        ↓
 Model Training
-       ↓
-Model Evaluation
-       ↓
+        ↓
+Model Monitoring
+        ↓
 Model Serialization
-       ↓
+        ↓
 Inference Pipeline
-       ↓
-Streamlit Application
-       ↓
+        ↓
+Streamlit Development
+        ↓
 Cloud Deployment
 ```
-
-The project therefore demonstrates not only **Deep Learning model
-development**, but also the practical steps required to turn an ML
-experiment into a usable application.
 
 ------------------------------------------------------------------------
 
 ## 👨‍💻 Author
 
-**Tushar**
+### Tushar
 
-Aspiring **Data Scientist / Machine Learning Engineer** focused on
-building practical Machine Learning, Deep Learning and AI applications.
+Aspiring **Data Scientist \| Machine Learning Engineer \| AI Engineer**
 
-### 🔗 Project Links
+Focused on building practical Machine Learning, Deep Learning and AI
+applications.
 
--   🚀 **Live Demo:**
-    https://annproject-zkhvuagmyq8godb5q73nzq.streamlit.app/
--   💻 **GitHub Repository:**
-    https://github.com/tusharaitechie/ANN_Project
+### Project Links
+
+-   🚀 [Live Streamlit
+    Application](https://annproject-zkhvuagmyq8godb5q73nzq.streamlit.app/)
+-   💻 [GitHub
+    Repository](https://github.com/tusharaitechie/ANN_Project)
 
 ------------------------------------------------------------------------
 
-## ⭐ Feedback
+## ⭐ If You Find This Project Useful
 
-If you find this project useful, feel free to explore the repository,
-try the live application, or share feedback.
+Feel free to explore the repository and try the live application.
 
-```{=html}
-<p align="center">
-```
-`<strong>`{=html}Built with Python • TensorFlow • Scikit-learn •
-SciKeras • Streamlit`</strong>`{=html}
-```{=html}
-</p>
-```
+**Built with Python • TensorFlow • Scikit-learn • SciKeras • Streamlit**
